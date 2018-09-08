@@ -1,4 +1,4 @@
-package com.learn.domain;
+package com.learn.test.domain.po;
 
 import org.apache.ibatis.type.Alias;
 

@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.learn.base.BaseTest;
-import com.learn.dao.PersonDao;
 
 public class PersonDaoTest extends BaseTest {
 	

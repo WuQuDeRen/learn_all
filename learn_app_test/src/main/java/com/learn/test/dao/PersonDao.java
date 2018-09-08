@@ -1,11 +1,11 @@
-package com.learn.dao;
+package com.learn.test.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.learn.domain.PersonDO;
+import com.learn.test.domain.po.PersonDO;
 
 @Repository
 public interface PersonDao {
