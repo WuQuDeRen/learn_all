@@ -8,7 +8,7 @@ import org.springframework.util.ObjectUtils;
 public class ParamUtil {
 	
 	/**
-	 * 判断是否均为空
+	 * 判断是否全部为空
 	 * @author ji_fei
 	 * 2018年7月30日 下午3:29:47
 	 * @param obj
@@ -26,7 +26,7 @@ public class ParamUtil {
 	}
 	
 	/**
-	 * 判断存在一个非空
+	 * 判断存在一个为空
 	 * @author ji_fei
 	 * 2018年7月30日 下午3:35:23
 	 * @return

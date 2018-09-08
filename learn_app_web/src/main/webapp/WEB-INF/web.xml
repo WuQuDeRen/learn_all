@@ -26,10 +26,14 @@
 		</listener> -->
 	<!-- log4j 系统日志 -->
 	<context-param>
-		<param-name>log4jConfigLocation</param-name>
+		<param-name>log4jConfiguration</param-name>
 		<!-- <param-value>classpath*:logback.xml</param-value> -->
-		<param-value>classpath*:log4j2.xml</param-value>
+		<param-value>configruation/log/log4j2.xml</param-value>
 	</context-param>
+	<context-param>
+         <param-name>log4jContextName</param-name>
+         <param-value>star</param-value>
+    </context-param>
 	<listener>
 		<listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
 	</listener>
@@ -90,6 +94,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath*:/configruation/spring/spring-mvc.xml</param-value>
 		</init-param>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>

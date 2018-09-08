@@ -6,6 +6,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<settings>
 		<setting name="autoMappingBehavior" value="FULL"/>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
-		<setting name="logImpl" value="LOG4J" />
+		<!-- <setting name="logImpl" value="LOG4J" /> -->
 	</settings>
 </configuration>
