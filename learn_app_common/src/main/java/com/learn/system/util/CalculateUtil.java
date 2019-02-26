@@ -47,7 +47,7 @@ public class CalculateUtil {
 	 * convertTime(3, 1)  满足要求时：转换成  xx天xx小时xx分
 	 */
 	public static String convertTime(Integer totalSeconds, Integer startIndex, Integer endIndex) {
-		if (ParamUtil.isAnyEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
+		if (ParamUtil.isExistEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
 			return "";
 		}
 		StringBuilder builder = new StringBuilder();
@@ -77,31 +77,10 @@ public class CalculateUtil {
 	 * @return
 	 */
 	public static String convertTimeCeil(Integer totalSeconds, Integer startIndex, Integer endIndex) {
-		if (ParamUtil.isAnyEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
+		if (ParamUtil.isExistEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
 			return "";
 		}
-		StringBuilder builder = new StringBuilder();
-		for (int i = startIndex; i >= endIndex; i--) {
-			int base = (int) Math.pow(60, i);
-			int tmp = totalSeconds % base;
-			int consult = totalSeconds / base;
-			if (consult > 0) {
-				if (i == endIndex && tmp != 0) {
-					builder.append((totalSeconds / base) + 1).append(chineseFormat[i]);
-				} else {
-					builder.append(totalSeconds / base).append(chineseFormat[i]);
-				}
-			} else {
-				if (i == endIndex && tmp != 0) {
-					builder.append((totalSeconds / base) + 1).append(chineseFormat[i]);
-				} 
-			}
-			if (tmp != 0) {
-				totalSeconds = tmp;
-			} else {
-				break;
-			}
-		}
+		StringBuilder builder = getStringBuilder(startIndex, endIndex, totalSeconds);
 		return builder.toString();
 	}
 	
@@ -127,18 +106,23 @@ public class CalculateUtil {
 	 * 向上取整（辗转相处）最小位置 分钟
 	 * @author ji_fei
 	 * 2018年8月22日 下午2:44:57
-	 * @param totalSeconds
+	 * @param totalMintues
 	 * @param startIndex 最大单位 1:分 2:小时 3: 天
 	 * @param endIndex 最小单位 1:分 2:小时 3: 天 （入参必须大于 0）
 	 * @return
 	 */
 	public static String convertTimeCeilUnitMin(Integer totalMintues, Integer startIndex, Integer endIndex) {
 		logger.info("分钟转化通话时长 params => totalMintues【{}】startIndex【{}】endIndex【{}】", totalMintues, startIndex, endIndex);
-		if (ParamUtil.isAnyEmpty(totalMintues, startIndex, endIndex) || startIndex < endIndex || endIndex == 0) {
+		if (ParamUtil.isExistEmpty(totalMintues, startIndex, endIndex) || startIndex < endIndex || endIndex == 0) {
 			logger.error("分钟转化通话时长 入参异常 params => totalMintues【{}】startIndex【{}】endIndex【{}】", totalMintues, startIndex, endIndex);
 			return "";
 		}
 		Integer totalSeconds = totalMintues * 60;
+		StringBuilder builder = getStringBuilder(startIndex, endIndex, totalSeconds);
+		return builder.toString();
+	}
+
+	private static StringBuilder getStringBuilder(Integer startIndex, Integer endIndex, Integer totalSeconds) {
 		StringBuilder builder = new StringBuilder();
 		for (int i = startIndex; i >= endIndex; i--) {
 			int base = (int) Math.pow(60, i);
@@ -153,7 +137,7 @@ public class CalculateUtil {
 			} else {
 				if (i == endIndex && tmp != 0) {
 					builder.append((totalSeconds / base) + 1).append(chineseFormat[i]);
-				} 
+				}
 			}
 			if (tmp != 0) {
 				totalSeconds = tmp;
@@ -161,9 +145,9 @@ public class CalculateUtil {
 				break;
 			}
 		}
-		return builder.toString();
+		return builder;
 	}
-	
+
 	public static String getCallTimeStr(Integer totalMintues, Integer startIndex, Integer endIndex) {
 		String timeFormat = convertTimeCeilUnitMin(totalMintues, startIndex, endIndex);
 		if (StringUtils.isEmpty(timeFormat)) {

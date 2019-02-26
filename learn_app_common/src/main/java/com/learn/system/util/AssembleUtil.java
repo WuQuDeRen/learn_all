@@ -48,7 +48,7 @@ public class AssembleUtil {
 					targetMap.put((K) value, item);
 					findField.setAccessible(false);
 				} catch (Exception e) {
-					logger.error("映射Map集合出错 params => keyName【{}】", keyName, e);
+					logger.error("映射Map集合出错 params => keyName【{}】targetMap -> {}", keyName, JSONUtils.toString(targetMap), e);
 				}
 			}
 		}
@@ -56,7 +56,7 @@ public class AssembleUtil {
 	}
 	
 	/**
-	 * List集合处理  取出标志符组成新集合
+	 * List集合处理  取出标识键组成新集合
 	 * @author ji_fei
 	 * 2018年8月28日 下午5:15:36
 	 * @param sourceList
@@ -79,7 +79,7 @@ public class AssembleUtil {
 					targetList.add((T) value);
 					findField.setAccessible(false);
 				} catch (Exception e) {
-					logger.error("desc => 依据标识键,生成列表失败 params => keyName【{}】", keyName, e);
+					logger.error("desc => 依据标识键,生成列表失败 params => keyName【{}】targetList -> {}", keyName, JSONUtils.toString(targetList), e);
 				}
 			}
 		}
@@ -115,7 +115,7 @@ public class AssembleUtil {
 						field.setAccessible(false);
 						mapEntity.put((K) value, item);
 					} catch (Exception e) {
-						logger.error("desc => 依据标识键组装Map异常 params => keyName【{}】", keyName, e);
+						logger.error("desc => 依据标识键组装Map失败 params => keyName【{}】mapEntity -> {}", keyName, JSONUtils.toString(mapEntity), e);
 					}
 				}
 			}
