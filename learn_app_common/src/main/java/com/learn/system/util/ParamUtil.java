@@ -1,14 +1,20 @@
 package com.learn.system.util;
 
-import java.util.Collection;
 
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 
 public class ParamUtil {
 	
-	/**
-	 * 判断是否全部为空
+	private static Logger logger = LoggerFactory.getLogger(ParamUtil.class);
+
+    /**
+	 * 判断是否均为空
 	 * @author ji_fei
 	 * 2018年7月30日 下午3:29:47
 	 * @param obj
@@ -26,12 +32,12 @@ public class ParamUtil {
 	}
 	
 	/**
-	 * 判断存在一个为空
+	 * 判断存在一个为空的
 	 * @author ji_fei
 	 * 2018年7月30日 下午3:35:23
 	 * @return
 	 */
-	public static boolean isAnyEmpty(Object...obj) {
+	public static boolean isExistEmpty(Object...obj) {
 		if (obj == null) {
 			return true;
 		}
@@ -44,17 +50,55 @@ public class ParamUtil {
 	}
 	
 	/**
-	 * 长度为0
+	 * 对象以及其表示符是否为空
 	 * @author ji_fei
-	 * 2018年8月31日 下午4:08:29
-	 * @param collection
+	 * 2018年9月13日 下午3:57:31
+	 * @param obj
+	 * @param fieldName
 	 * @return
 	 */
-	@SuppressWarnings("null")
-	public static boolean isZeroNotEmpty(Collection<?> collection) {
-		if (collection != null || collection.size() == 0) {
+	private static boolean isEmpty(Object obj, String fieldName) {
+		if (obj == null || StringUtils.isEmpty(fieldName)) {
 			return true;
+		}
+		Field field = ReflectionUtils.findField(obj.getClass(), fieldName);
+		if (field == null) {
+			return false;
+		}
+		boolean result = true;
+		try {
+			field.setAccessible(true);
+			if (!ObjectUtils.isEmpty(field.get(obj))) {
+				result = false;
+			}
+		} catch (Exception e) {
+			logger.error("exception【获取字段异常】");
+		}
+		return result;
+	}
+	
+	/**
+	 * 是否为存在空
+	 * @author ji_fei
+	 * 2018年9月18日 下午4:41:27
+	 * @param obj
+	 * @param fieldNameList
+	 * @return
+	 */
+	public static boolean isExistEmpty(Object obj, String ... fieldNameList) {
+		if (obj == null || fieldNameList == null) {
+			return true;
+		}
+		for (String fieldName : fieldNameList) {
+			if (isEmpty(obj, fieldName)) {
+				return true;
+			}
 		}
 		return false;
 	}
+	
+
+
+
+	
 }
