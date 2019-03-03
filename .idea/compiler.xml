@@ -13,6 +13,7 @@
         <module name="learn_app_order" />
         <module name="learn_app_test" />
         <module name="learn_app_web" />
+        <module name="learn_design_pattern" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,6 +25,7 @@
       <module name="learn_app_order" target="1.8" />
       <module name="learn_app_test" target="1.8" />
       <module name="learn_app_web" target="1.8" />
+      <module name="learn_design_pattern" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
