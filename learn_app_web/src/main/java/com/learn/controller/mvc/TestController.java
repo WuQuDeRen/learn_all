@@ -1,5 +1,7 @@
 package com.learn.controller.mvc;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,12 +17,15 @@ import io.swagger.annotations.ApiParam;
 @RestController
 public class TestController {
 
+	private Logger logger = LoggerFactory.getLogger(TestController.class);
+
 	@ApiOperation(value = "测试B操作", httpMethod = "GET")
 	@RequestMapping(value = "/b")
 	public String getJsonB() {
-		return "{name: b}";
+		logger.info("--请求---{}", "b");
+		return "{\"name\": \"b\"}";
 	}
-	
+
 	@ApiOperation(value = "测试A操作", httpMethod = "GET")
 	@RequestMapping(value = "/a")
 	public TestVo getJsonA(@RequestBody @ApiParam(required = true, name="用户对象",value="传入json格式") ReceiveModel model) {

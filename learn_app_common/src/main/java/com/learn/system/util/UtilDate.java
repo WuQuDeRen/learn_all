@@ -13,12 +13,6 @@ import java.util.Random;
 /**
  * 类名：UtilDate
  * 功能：自定义订单类
- * 详细：工具类，可以用作获取系统日期、订单编号等
- * 版本：3.3
- * 日期：2012-08-17
- * 说明：
- * 以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
- * 该代码仅供学习和研究支付宝接口使用，只是提供一个参考。
  */
 public class UtilDate {
 
@@ -108,18 +102,18 @@ public class UtilDate {
      * 计算距离当前时间的日期
      * @param days 距离系统日期的天数
      */
-    public static Date calFutureDate(int days) {
-        return UtilDate.calFutureDate(UtilDate.getToday(), days);
+    public static Date getFutureDate(int days) {
+        return UtilDate.getFutureDate(UtilDate.getTodayBegin(), days);
     }
 
-    public static Date calFutureDate(Date date, int days) {
+    public static Date getFutureDate(Date date, int days) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + days);
         return calendar.getTime();
     }
 
-    public static Date calFutureDate(Date date, int days, int hours, int minute) {
+    public static Date getFutureDate(Date date, int days, int hours, int minute) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + days);
@@ -169,7 +163,7 @@ public class UtilDate {
         l.add(start);
         int j = UtilDate.differentDaysIgnoreHour(start, end);
         for (int i = 0; i < j; i++) {
-            tempDate = UtilDate.calFutureDate(tempDate, 1);
+            tempDate = UtilDate.getFutureDate(tempDate, 1);
             l.add(tempDate);
         }
         return l;
@@ -185,7 +179,7 @@ public class UtilDate {
         return calendar.getTime();
     }
 
-    public static Date getToday() {
+    public static Date getTodayBegin() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -222,7 +216,7 @@ public class UtilDate {
         return calendar.get(Calendar.MINUTE);
     }
 
-    public static Date strToDate(String dateStr, String format) {
+    public static Date getDateFromStr(String dateStr, String format) {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         try {
             return sdf.parse(dateStr);
@@ -246,5 +240,74 @@ public class UtilDate {
 //		//System.out.println(UtilDate.getOrderDateList(start,end).size());
 //		//System.out.println(UtilDate.dateFormat(UtilDate.getToday(), "yyyy-MM-dd HHmmss SSS EEEE"));
 //	}
+
+    /**
+     * 获取指定月的上个月第一天 yyyy-MM-dd 00:00:00
+     * @param sourceDate
+     * @return
+     */
+    public static Date getLastMonthBegin(Date sourceDate) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(sourceDate);
+        calendar.add(Calendar.MONTH, -1);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
+    }
+
+    /**
+     * 获取指定月的上个月的最后一天   yyyy-MM-dd 23:59:59
+     * @param sourceDate
+     * @return
+     */
+    public static Date getLastMonthEnd(Date sourceDate) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(sourceDate);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.add(Calendar.SECOND, -1);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
+    }
+
+    /**
+     * 获取指定月的开始时间
+     * @param sourceDate
+     * @return
+     */
+    public static Date getTargetMonthBegin(Date sourceDate) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(sourceDate);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
+    }
+
+    /**
+     * 获取指定月的开始时间
+     * @param sourceDate
+     * @return
+     */
+    public static Date getTargetMonthEnd(Date sourceDate) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(sourceDate);
+        calendar.add(Calendar.MONTH, 1);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        calendar.add(Calendar.MILLISECOND, -1);
+
+        return calendar.getTime();
+    }
 
 }

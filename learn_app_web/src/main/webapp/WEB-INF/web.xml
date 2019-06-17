@@ -18,17 +18,18 @@
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:/configruation/spring/spring-main.xml</param-value>
+		<param-value>classpath*:/config/spring/spring-main.xml</param-value>
 	</context-param>
-	<!-- 在Spring5中已经被废弃了 
-		<listener> 
-			<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class> 
+	<!-- 在Spring5中已经被废弃了
+		<listener>
+			<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 		</listener> -->
 	<!-- log4j 系统日志 -->
 	<context-param>
 		<param-name>log4jConfiguration</param-name>
 		<!-- <param-value>classpath*:logback.xml</param-value> -->
-		<param-value>configruation/log/log4j2.xml</param-value>
+		<param-value>classpath*:logback.xml</param-value>
+		<!--<param-value>configruation/log/log4j2.xml</param-value>-->
 	</context-param>
 	<context-param>
          <param-name>log4jContextName</param-name>
@@ -79,12 +80,12 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!-- <filter> <filter-name>corsFilter</filter-name> <filter-class>priv.fj.webapp.commons.filter.CORSFilter</filter-class> 
-		</filter> <filter-mapping> <filter-name>corsFilter</filter-name> <url-pattern>/*</url-pattern> 
+	<!-- <filter> <filter-name>corsFilter</filter-name> <filter-class>priv.fj.webapp.commons.filter.CORSFilter</filter-class>
+		</filter> <filter-mapping> <filter-name>corsFilter</filter-name> <url-pattern>/*</url-pattern>
 		</filter-mapping> -->
 
 	<!--Spring Security Listener -->
-	<!-- <listener> <listener-class> org.springframework.security.web.session.HttpSessionEventPublisher</listener-class> 
+	<!-- <listener> <listener-class> org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
 		</listener> -->
 	<!--Spring MVC DispatcherServlet -->
 	<servlet>
@@ -92,7 +93,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath*:/configruation/spring/spring-mvc.xml</param-value>
+			<param-value>classpath*:/config/spring/spring-mvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -101,8 +102,8 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	<!--Spring security -->
-	<!-- <filter> <filter-name>springSecurityFilterChain</filter-name> <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> 
-		</filter> <filter-mapping> <filter-name>springSecurityFilterChain</filter-name> 
+	<!-- <filter> <filter-name>springSecurityFilterChain</filter-name> <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		</filter> <filter-mapping> <filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern> </filter-mapping> -->
 
 	<session-config>

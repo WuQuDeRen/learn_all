@@ -113,6 +113,15 @@
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 		</dependency>
+		<!--系统-->
+		<dependency>
+			<groupId>com.learn</groupId>
+			<artifactId>learn_app_spring</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>com.learn</groupId>
+            <artifactId>learn_app_common</artifactId>
+        </dependency>
 	</dependencies>
 	<build>
 		<plugins>

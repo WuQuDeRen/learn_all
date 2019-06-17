@@ -15,12 +15,15 @@
 		<module>learn_app_test</module>
 		<module>learn_app_facade</module>
         <module>learn_design_pattern</module>
+        <module>learn_app_algorithm</module>
+        <module>learn_app_concurrent</module>
+        <module>learn_app_spring</module>
     </modules>
 	<!-- pluginManagement主要是为了统一管理插件，确保所有子项目使用的插件版本保持一致，类似的还是dependencies和dependencyManagement -->
-	<!-- 1、如果父项目pom中使用的是： <dependencies> .... </dependencies>方式，则子项目pom会自动使用父pom中的jar包。 
+	<!-- 1、如果父项目pom中使用的是： <dependencies> .... </dependencies>方式，则子项目pom会自动使用父pom中的jar包。
 		2、如果父项目pom使用 <dependencyManagement> <dependencies> .... </dependencies> </dependencyManagement>方式，则子项目pom不会自动使用父pom中的jar包，如果需要使用，就要给出groupId和artifactId，无需给出version -->
-	<!-- https://blog.csdn.net/liupeifeng3514/article/details/80236827 1、如果父项目pom中使用的是： 
-		<plugins> .... </plugins>方式，则子项目pom会自动使用父pom中的插件 2、如果父项目pom使用 <pluginManagement> 
+	<!-- https://blog.csdn.net/liupeifeng3514/article/details/80236827 1、如果父项目pom中使用的是：
+		<plugins> .... </plugins>方式，则子项目pom会自动使用父pom中的插件 2、如果父项目pom使用 <pluginManagement>
 		<plugins> .... </plugins> </pluginManagement>方式，则子项目pom不会自动使用父pom中的插件，如果需要使用，就要给出groupId和artifactId，无需给出version和其他配置信息 -->
 	<properties>
 		<gson.version>15.0</gson.version>
@@ -88,11 +91,11 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.slf4j</groupId>-->
+			<!--<artifactId>slf4j-log4j12</artifactId>-->
+			<!--<version>${slf4j.version}</version>-->
+		<!--</dependency>-->
 
 		<!-- log4j2 日志 -->
 		<dependency>
@@ -169,11 +172,11 @@
 			<artifactId>spring-oxm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.learn</groupId>
-			<artifactId>learn_app_common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.learn</groupId>-->
+			<!--<artifactId>learn_app_common</artifactId>-->
+			<!--<version>0.0.1-SNAPSHOT</version>-->
+		<!--</dependency>-->
 
 	</dependencies>
 
@@ -495,6 +498,21 @@
 				<groupId>com.learn</groupId>
 				<artifactId>learn_app_facade</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.learn</groupId>
+				<artifactId>learn_app_spring</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.learn</groupId>
+				<artifactId>learn_app_common</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
