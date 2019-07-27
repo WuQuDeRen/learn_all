@@ -10,7 +10,7 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 
 public class ParamUtil {
-	
+
 	private static Logger logger = LoggerFactory.getLogger(ParamUtil.class);
 
     /**
@@ -20,7 +20,7 @@ public class ParamUtil {
 	 * @param obj
 	 * @return
 	 */
-	public static boolean isAllEmpty(Object... obj) {
+	public static boolean allEmpty(Object... obj) {
 		if (obj != null) {
 			for (Object item : obj) {
 				if (!ObjectUtils.isEmpty(item)) {
@@ -30,14 +30,14 @@ public class ParamUtil {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * 判断存在一个为空的
 	 * @author ji_fei
 	 * 2018年7月30日 下午3:35:23
 	 * @return
 	 */
-	public static boolean isExistEmpty(Object...obj) {
+	public static boolean existEmpty(Object...obj) {
 		if (obj == null) {
 			return true;
 		}
@@ -48,7 +48,45 @@ public class ParamUtil {
 		}
 		return false;
 	}
-	
+
+	/**
+	 * 判断参数为 Null
+	 * @param obj
+	 * @return
+	 */
+	public static boolean allNull(Object... obj) {
+		if (obj == null) {
+			return true;
+		}
+		for (Object item : obj) {
+			if (item != null) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * @desc 存在 Null
+	 * @author fei_ji
+	 * @date 2019-07-16 10:13
+	 * @param obj
+	 * @return
+	 */
+	public static boolean existNull(Object... obj) {
+		if (obj == null) {
+			return true;
+		}
+
+		for (Object item : obj) {
+			if (item == null) {
+				return true;
+			}
+		}
+		return false;
+
+	}
+
 	/**
 	 * 对象以及其表示符是否为空
 	 * @author ji_fei
@@ -76,7 +114,7 @@ public class ParamUtil {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 是否为存在空
 	 * @author ji_fei
@@ -85,7 +123,7 @@ public class ParamUtil {
 	 * @param fieldNameList
 	 * @return
 	 */
-	public static boolean isExistEmpty(Object obj, String ... fieldNameList) {
+	public static boolean existEmpty(Object obj, String ... fieldNameList) {
 		if (obj == null || fieldNameList == null) {
 			return true;
 		}
@@ -96,9 +134,9 @@ public class ParamUtil {
 		}
 		return false;
 	}
-	
 
 
 
-	
+
+
 }

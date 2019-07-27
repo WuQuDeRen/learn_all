@@ -1,17 +1,17 @@
 package com.learn.system.util;
 
 import java.lang.reflect.Field;
-import java.text.Collator;
 import java.util.*;
+import java.util.function.Consumer;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 
@@ -80,7 +80,7 @@ public class AssembleUtil {
 	 * @return
 	 */
 	public static <K, T> List<T> list(List<K> sourceList, String keyName) {
-		if (ParamUtil.isExistEmpty(sourceList, keyName)) {
+		if (ParamUtil.existEmpty(sourceList, keyName)) {
 			logger.error("desc => 入参异常,无法组装列表 params => keyName【{}】", keyName);
 			return Lists.newArrayList();
 		}
@@ -133,7 +133,7 @@ public class AssembleUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <K, T> List<T> listNotEmpty(List<K> sourceList, String keyName) {
-		if (ParamUtil.isExistEmpty(sourceList, keyName)) {
+		if (ParamUtil.existEmpty(sourceList, keyName)) {
 			logger.error("取出标志符组成新集合入参错误 params => keyName【{}】", keyName);
 			return Lists.newArrayList();
 		}
@@ -198,7 +198,7 @@ public class AssembleUtil {
 	 * @return
 	 */
 	public static <K, T> Map<K, T> mapEntity(List<T> sourceList, String keyName) {
-		if (ParamUtil.isExistEmpty(sourceList, keyName)) {
+		if (ParamUtil.existEmpty(sourceList, keyName)) {
 			logger.error("映射Map集合出错 params => keyName【{}】", keyName);
 			return Maps.newHashMap();
 		}
@@ -231,7 +231,7 @@ public class AssembleUtil {
 	 * @return  {"key1": [value1, value2, ..., valuen], "key2": [value1, value2, ..., valuen]}
 	 */
 	public static <K, T> Map<String, Map<K, T>> mapEntity(List<T> sourceList, String... keyNameList) {
-		if (ParamUtil.isExistEmpty(sourceList, keyNameList)) {
+		if (ParamUtil.existEmpty(sourceList, keyNameList)) {
 			return Maps.newHashMap();
 		}
 		Map<String, Map<K, T>> mapEntityOuter = Maps.newHashMap();
@@ -274,8 +274,110 @@ public class AssembleUtil {
 	}
 
 
+	static class A {
+		private String name;
+		private Integer id;
+
+		public A() {
+		}
+
+		public A(String name, Integer id) {
+			this.name = name;
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		@Override
+		public boolean equals(Object o) {
+			if (this == o) return true;
+			if (o == null || getClass() != o.getClass()) return false;
+
+			A a = (A) o;
+
+			if (name != null ? !name.equals(a.name) : a.name != null) return false;
+			return id != null ? id.equals(a.id) : a.id == null;
+		}
+
+		@Override
+		public int hashCode() {
+			int result = name != null ? name.hashCode() : 0;
+			result = 31 * result + (id != null ? id.hashCode() : 0);
+			return result;
+		}
+	}
 	public static void main(String[] args) {
 		System.out.println(JSON.toJSONStringWithDateFormat(new Date(), "yyyy-MM-dd HH:mm:ss"));
 		System.out.println(JSONObject.toJSONString(new Date(), SerializerFeature.WriteDateUseDateFormat));
+		Map<String, List<A>> sourceMap = Maps.newHashMap();
+		List<A> a = Lists.newArrayList();
+		a.add(new A("jfei", 1));
+		a.add(new A());
+		sourceMap.put("1", a);
+		mapList(sourceMap, "1", new A(), (entity) -> {entity.setName("66666");});
+		System.out.println(sourceMap);
+
+
 	}
+
+	/**
+	 * 将 V 添加进 sourceMap中
+	 * @param sourceMap
+	 * @param key
+	 * @param entity
+	 * @param <K>
+	 * @param <V>
+	 */
+	public static <K, V> void mapList(Map<K, List<V>> sourceMap, K key, V entity) {
+		if (CollectionUtils.isEmpty(sourceMap)) {
+			return;
+		}
+		if (!sourceMap.containsKey(key)) {
+			List<V> resultList = Lists.newArrayList(entity);
+			sourceMap.put(key, resultList);
+		} else {
+			List<V> resultList = sourceMap.get(key);
+			resultList.add(entity);
+		}
+	}
+
+	/**
+	 * 将 V 添加进 sourceMap中
+	 * @param sourceMap
+	 * @param key
+	 * @param entity
+	 * @param <K>
+	 * @param <V>
+	 */
+	public static <K, V> void mapList(Map<K, List<V>> sourceMap, K key, V entity, Consumer<V> consumer) {
+		if (CollectionUtils.isEmpty(sourceMap)) {
+			return;
+		}
+		// 进行自定义操作
+		consumer.accept(entity);
+		if (!sourceMap.containsKey(key)) {
+			List<V> resultList = Lists.newArrayList(entity);
+			sourceMap.put(key, resultList);
+		} else {
+			List<V> resultList = sourceMap.get(key);
+			resultList.add(entity);
+		}
+	}
+
+
 }
+

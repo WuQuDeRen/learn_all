@@ -80,9 +80,14 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!-- <filter> <filter-name>corsFilter</filter-name> <filter-class>priv.fj.webapp.commons.filter.CORSFilter</filter-class>
-		</filter> <filter-mapping> <filter-name>corsFilter</filter-name> <url-pattern>/*</url-pattern>
-		</filter-mapping> -->
+
+	<filter> <filter-name>corsFilter</filter-name>
+		<filter-class>com.learn.CrossDomainFilter</filter-class>
+		</filter>
+	<filter-mapping>
+		<filter-name>corsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<!--Spring Security Listener -->
 	<!-- <listener> <listener-class> org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>

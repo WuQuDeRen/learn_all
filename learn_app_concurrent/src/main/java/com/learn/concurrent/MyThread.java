@@ -8,13 +8,7 @@ public class MyThread {
 
     public static void main(String[] args) {
 
-        Thread thread1 = new Thread(() -> {
-            while (true) {
-                System.out.println(new Random().nextBoolean());
-            }
-        });
-
-        thread1.start();
+        System.out.println("12121212121212121212".length());
 
     }
 }

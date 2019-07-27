@@ -14,20 +14,21 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd"
 	default-lazy-init="true">
-	<!--@Service  -->
-	<!-- <context:component-scan base-package="priv.fj.webapp.dev.service"/>
 
-	<context:component-scan base-package="priv.fj.webapp.authority.service"/>
-
-	<context:component-scan base-package="priv.fj.webapp.construction.service"/>
-
-	<context:component-scan base-package="priv.fj.webapp.authority.service"/> -->
 
 	<context:component-scan base-package="com.learn.**"/>
+	<context:component-scan base-package="com.learn.netty.websocket"/>
+
+	<bean id="messageEventHandler" class="com.learn.netty.websocket.MessageEventHandler"/>
+	<bean id="socketIOServerFactoryBean" class="com.learn.netty.websocket.SocketIOServerFactoryBean"/>
+	<bean id="springAnnotationScannerFactoryBean" class="com.learn.netty.websocket.SpringAnnotationScannerFactoryBean"/>
+	<bean id="websocketInit" class="com.learn.netty.websocket.WebsocketInit"/>
+
+
 
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="globalRollbackOnParticipationFailure" value="false" />
+		<!--<property name="globalRollbackOnParticipationFailure" value="false" />-->
 	</bean>
 	<!--启用事务注解 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />

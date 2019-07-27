@@ -113,7 +113,7 @@
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 		</dependency>
-		<!--系统-->
+		<!--一方库 系统-->
 		<dependency>
 			<groupId>com.learn</groupId>
 			<artifactId>learn_app_spring</artifactId>
@@ -122,6 +122,18 @@
             <groupId>com.learn</groupId>
             <artifactId>learn_app_common</artifactId>
         </dependency>
+		<dependency>
+			<groupId>com.learn</groupId>
+			<artifactId>learn_app_websocket</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.learn</groupId>
+			<artifactId>learn_app_admin</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

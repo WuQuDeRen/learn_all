@@ -3,16 +3,21 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/learn_app.iml" filepath="$PROJECT_DIR$/learn_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin_web/learn_app_admin.iml" filepath="$PROJECT_DIR$/admin_web/learn_app_admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_algorithm/learn_app_algorithm.iml" filepath="$PROJECT_DIR$/learn_app_algorithm/learn_app_algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_api/learn_app_api.iml" filepath="$PROJECT_DIR$/learn_app_api/learn_app_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cache/learn_app_cache.iml" filepath="$PROJECT_DIR$/cache/learn_app_cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_common/learn_app_common.iml" filepath="$PROJECT_DIR$/learn_app_common/learn_app_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_concurrent/learn_app_concurrent.iml" filepath="$PROJECT_DIR$/learn_app_concurrent/learn_app_concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_core/learn_app_core.iml" filepath="$PROJECT_DIR$/learn_app_core/learn_app_core.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_facade/learn_app_facade.iml" filepath="$PROJECT_DIR$/learn_app_facade/learn_app_facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nio/learn_app_nio.iml" filepath="$PROJECT_DIR$/nio/learn_app_nio.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_order/learn_app_order.iml" filepath="$PROJECT_DIR$/learn_app_order/learn_app_order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proxy/learn_app_proxy.iml" filepath="$PROJECT_DIR$/proxy/learn_app_proxy.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_spring/learn_app_spring.iml" filepath="$PROJECT_DIR$/learn_app_spring/learn_app_spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_test/learn_app_test.iml" filepath="$PROJECT_DIR$/learn_app_test/learn_app_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_web/learn_app_web.iml" filepath="$PROJECT_DIR$/learn_app_web/learn_app_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/websocket/learn_app_websocket.iml" filepath="$PROJECT_DIR$/websocket/learn_app_websocket.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_design_pattern/learn_design_pattern.iml" filepath="$PROJECT_DIR$/learn_design_pattern/learn_design_pattern.iml" />
     </modules>
   </component>

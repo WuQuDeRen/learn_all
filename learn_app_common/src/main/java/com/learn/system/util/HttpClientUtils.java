@@ -69,11 +69,11 @@ public class HttpClientUtils {
 					// 把json字符串转换成json对象
 					jsonResult = JSONObject.parseObject(str);
 				} catch (Exception e) {
-					logger.error("post请求提交失败:" + url, e);
+					logger.error("post请求提交失败: {}", url, e);
 				}
 			}
 		} catch (IOException e) {
-			logger.error("post请求提交失败:" + url, e);
+			logger.error("post请求提交失败: {}", url, e);
 		} finally {
 			httpPost.releaseConnection();
 		}
@@ -101,7 +101,7 @@ public class HttpClientUtils {
 				// 解决中文乱码问题
 				StringEntity entity = new StringEntity(strParam, "utf-8");
 				entity.setContentEncoding("UTF-8");
-				entity.setContentType("application/x-www-form-urlencoded");
+				entity.setContentType("application/json");
 				httpPost.setEntity(entity);
 			}
 			CloseableHttpResponse result = httpClient.execute(httpPost);
@@ -111,13 +111,8 @@ public class HttpClientUtils {
 				try {
 					// 读取服务器返回过来的json字符串数据
 					str = EntityUtils.toString(result.getEntity(), "utf-8");
-
 					// 把json字符串转换成json对象
 					jsonResult = JSONObject.parseObject(str);
-					if (!OK.equals(jsonResult.get("code"))) {
-						logger.error("【绑定/解绑小号】错误：手机号信息：" + strParam);
-					}
-
 				} catch (Exception e) {
 					logger.error("post请求提交失败:" + url, e);
 				}

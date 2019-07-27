@@ -2,6 +2,8 @@ package com.learn.algorithm.tree;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.BeanUtilsBean;
 
 @Data
 @EqualsAndHashCode

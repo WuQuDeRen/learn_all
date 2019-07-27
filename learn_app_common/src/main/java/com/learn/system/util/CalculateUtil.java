@@ -7,20 +7,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 public class CalculateUtil {
-	
+
 	private static Logger logger = LoggerFactory.getLogger(CalculateUtil.class);
-	
+
 	public static final Integer SECOND = 0;
-	
+
 	public static final Integer MINUTE = 1;
-	
+
 	public static final Integer HOUR = 2;
-	
+
 	public static final Integer DAY = 3;
-	
+
 	public static String[] chineseFormat = {"秒", "分钟", "小时", "天"};
-	
-	
+
+
 	/**
 	 * 计算百分率
 	 * @author ji_fei
@@ -35,7 +35,7 @@ public class CalculateUtil {
 		}
 		return new BigDecimal(dividend / (divider * 1.0) * 100).setScale(2, BigDecimal.ROUND_HALF_UP) + "%";
 	}
-	
+
 	/**
 	 * 将 秒   转换成   xx天xx小时xx分xx秒   格式
 	 * @author ji_fei
@@ -47,7 +47,7 @@ public class CalculateUtil {
 	 * convertTime(3, 1)  满足要求时：转换成  xx天xx小时xx分
 	 */
 	public static String convertTime(Integer totalSeconds, Integer startIndex, Integer endIndex) {
-		if (ParamUtil.isExistEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
+		if (ParamUtil.existEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
 			return "";
 		}
 		StringBuilder builder = new StringBuilder();
@@ -66,7 +66,7 @@ public class CalculateUtil {
 		}
 		return builder.toString();
 	}
-	
+
 	/**
 	 * 向上取整（辗转相处）
 	 * @author ji_fei
@@ -77,13 +77,13 @@ public class CalculateUtil {
 	 * @return
 	 */
 	public static String convertTimeCeil(Integer totalSeconds, Integer startIndex, Integer endIndex) {
-		if (ParamUtil.isExistEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
+		if (ParamUtil.existEmpty(totalSeconds, startIndex, endIndex) || startIndex < endIndex) {
 			return "";
 		}
 		StringBuilder builder = getStringBuilder(startIndex, endIndex, totalSeconds);
 		return builder.toString();
 	}
-	
+
 	/**
 	 * 不足一分钟按照一分钟计算
 	 * @author ji_fei
@@ -101,7 +101,7 @@ public class CalculateUtil {
 		}
 		return dividend / divide;
 	}
-	
+
 	/**
 	 * 向上取整（辗转相处）最小位置 分钟
 	 * @author ji_fei
@@ -113,7 +113,7 @@ public class CalculateUtil {
 	 */
 	public static String convertTimeCeilUnitMin(Integer totalMintues, Integer startIndex, Integer endIndex) {
 		logger.info("分钟转化通话时长 params => totalMintues【{}】startIndex【{}】endIndex【{}】", totalMintues, startIndex, endIndex);
-		if (ParamUtil.isExistEmpty(totalMintues, startIndex, endIndex) || startIndex < endIndex || endIndex == 0) {
+		if (ParamUtil.existEmpty(totalMintues, startIndex, endIndex) || startIndex < endIndex || endIndex == 0) {
 			logger.error("分钟转化通话时长 入参异常 params => totalMintues【{}】startIndex【{}】endIndex【{}】", totalMintues, startIndex, endIndex);
 			return "";
 		}
@@ -155,7 +155,7 @@ public class CalculateUtil {
 		}
 		return timeFormat;
 	}
-	
+
 	public static String getSmsUsed(Integer usedSmsNum) {
 		return usedSmsNum == null ? "0" : usedSmsNum + "";
 	}
