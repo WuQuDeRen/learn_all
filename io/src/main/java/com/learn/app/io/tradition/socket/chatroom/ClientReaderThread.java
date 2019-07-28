@@ -1,4 +1,4 @@
-package com.learn.app.nio.socket.chatroom;
+package com.learn.app.io.tradition.socket.chatroom;
 
 import java.io.BufferedReader;
 import java.io.IOException;

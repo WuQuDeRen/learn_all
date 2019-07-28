@@ -11,7 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/learn_app_concurrent/learn_app_concurrent.iml" filepath="$PROJECT_DIR$/learn_app_concurrent/learn_app_concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_core/learn_app_core.iml" filepath="$PROJECT_DIR$/learn_app_core/learn_app_core.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_facade/learn_app_facade.iml" filepath="$PROJECT_DIR$/learn_app_facade/learn_app_facade.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nio/learn_app_nio.iml" filepath="$PROJECT_DIR$/nio/learn_app_nio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io/learn_app_nio.iml" filepath="$PROJECT_DIR$/io/learn_app_nio.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_order/learn_app_order.iml" filepath="$PROJECT_DIR$/learn_app_order/learn_app_order.iml" />
       <module fileurl="file://$PROJECT_DIR$/proxy/learn_app_proxy.iml" filepath="$PROJECT_DIR$/proxy/learn_app_proxy.iml" />
       <module fileurl="file://$PROJECT_DIR$/learn_app_spring/learn_app_spring.iml" filepath="$PROJECT_DIR$/learn_app_spring/learn_app_spring.iml" />

@@ -1,4 +1,4 @@
-package com.learn.app.nio.socket.chatroom;
+package com.learn.app.io.nio.chatroom;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -8,12 +8,12 @@ import java.net.Socket;
  * @author ji_fei
  * @date  2019-07-27 17:37
  */
-public class ChatClient1 {
+public class ChatClient2 {
 
     public static void main(String[] args) throws IOException {
 
         Socket socket =  new Socket("127.0.0.1", 8202);
-        new ClientWriterThread(socket, "小甲").start();
+        new ClientWriterThread(socket, "小乙").start();
         new ClientReaderThread(socket).start();
     }
 

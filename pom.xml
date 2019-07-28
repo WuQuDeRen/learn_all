@@ -21,7 +21,7 @@
         <module>cache</module>
         <module>admin_web</module>
         <module>websocket</module>
-        <module>nio</module>
+        <module>io</module>
         <module>proxy</module>
     </modules>
 	<!-- pluginManagement主要是为了统一管理插件，确保所有子项目使用的插件版本保持一致，类似的还是dependencies和dependencyManagement -->

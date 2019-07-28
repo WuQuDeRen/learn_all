@@ -1,4 +1,4 @@
-package com.learn.app.nio.socket.chatroom;
+package com.learn.app.io.nio.chatroom;
 
 import java.io.*;
 import java.net.Socket;

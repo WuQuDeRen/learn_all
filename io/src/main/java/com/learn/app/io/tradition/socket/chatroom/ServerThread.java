@@ -1,4 +1,4 @@
-package com.learn.app.nio.socket.chatroom;
+package com.learn.app.io.tradition.socket.chatroom;
 
 import java.io.*;
 import java.net.Socket;
@@ -26,10 +26,10 @@ public class ServerThread extends Thread {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             while (true) {
+                String conent = reader.readLine();
                 for (Socket socket : ChatServer.socketList) {
                     if (socket != this.socket) {
                         PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                        String conent = reader.readLine();
                         System.out.println(conent);
                         writer.println(conent);
                         writer.flush();

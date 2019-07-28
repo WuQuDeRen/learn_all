@@ -1,8 +1,7 @@
-package com.learn.app.nio.socket;
+package com.learn.app.io.tradition.socket.simple;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Date;
 
 /**
  * @desc TODO
