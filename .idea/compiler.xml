@@ -13,6 +13,7 @@
         <module name="learn_app_common" />
         <module name="learn_app_concurrent" />
         <module name="learn_app_core" />
+        <module name="learn_app_dubbo" />
         <module name="learn_app_facade" />
         <module name="learn_app_nio" />
         <module name="learn_app_order" />
@@ -33,6 +34,7 @@
       <module name="learn_app_common" target="1.8" />
       <module name="learn_app_concurrent" target="1.8" />
       <module name="learn_app_core" target="1.8" />
+      <module name="learn_app_dubbo" target="1.8" />
       <module name="learn_app_facade" target="1.8" />
       <module name="learn_app_nio" target="1.8" />
       <module name="learn_app_order" target="1.8" />

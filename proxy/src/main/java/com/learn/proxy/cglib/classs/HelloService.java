@@ -8,7 +8,7 @@ import lombok.Data;
  * @date  2019-07-27 11:32
  */
 @Data
-@TestAnnotation
+//@TestAnnotation(value = "我是天涯")
 public class HelloService {
 
     private String name = "kkkkkkk";

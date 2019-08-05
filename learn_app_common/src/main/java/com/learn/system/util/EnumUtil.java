@@ -68,7 +68,7 @@ public class EnumUtil {
                     Field field = ReflectionUtils.findField(enumClass, keyName);
                     field.setAccessible(true);
                     Object value = ReflectionUtils.getField(field, item);
-                    if (StringUtils.equals(JSONUtils.toStringSortField(keyValue), JSONUtils.toStringSortField(value))) {
+                    if (StringUtils.equals(JSONUtils.toStringSorted(keyValue), JSONUtils.toStringSorted(value))) {
                         return  item;
                     }
                 }

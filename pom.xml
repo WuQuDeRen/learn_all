@@ -23,6 +23,7 @@
         <module>websocket</module>
         <module>io</module>
         <module>proxy</module>
+        <module>dubbo</module>
     </modules>
 	<!-- pluginManagement主要是为了统一管理插件，确保所有子项目使用的插件版本保持一致，类似的还是dependencies和dependencyManagement -->
 	<!-- 1、如果父项目pom中使用的是： <dependencies> .... </dependencies>方式，则子项目pom会自动使用父pom中的jar包。
