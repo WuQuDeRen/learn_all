@@ -68,7 +68,7 @@ public class EnumUtil {
                     Field field = ReflectionUtils.findField(enumClass, keyName);
                     field.setAccessible(true);
                     Object value = ReflectionUtils.getField(field, item);
-                    if (StringUtils.equals(JSONUtils.toStringSorted(keyValue), JSONUtils.toStringSorted(value))) {
+                    if (StringUtils.equals(JSONUtil.toStringSorted(keyValue), JSONUtil.toStringSorted(value))) {
                         return  item;
                     }
                 }
@@ -93,7 +93,7 @@ public class EnumUtil {
     public static <T extends Enum, K> T getEnumByFieldWithException(Class<T> enumClass, String keyName, K keyValue) throws ServerException {
         T enumByField = getEnumByField(enumClass, keyName, keyValue);
         if (enumByField == null) {
-            logger.error("desc => 枚举获取异常 params => enumClass -> {} keyName -> {} keyValue -> {}", enumClass, keyName, JSONUtils.toString(keyValue));
+            logger.error("desc => 枚举获取异常 params => enumClass -> {} keyName -> {} keyValue -> {}", enumClass, keyName, JSONUtil.toString(keyValue));
             throw new ServerException(ExceptionMsgEnum.DATA_NOT_MATCH);
         }
         return enumByField;

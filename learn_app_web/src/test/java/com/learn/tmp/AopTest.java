@@ -1,8 +1,8 @@
 package com.learn.tmp;
 
-import com.learn.aspect.PersonService;
+import com.learn.app.core.service.PersonService;
 import com.learn.async.AsyncTestAService;
-import org.junit.Before;
+import com.learn.app.core.service.ReceiveModel;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +33,14 @@ public class AopTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath*:/config/spring/spring-main.xml");
         PersonService personService = applicationContext.getBean(PersonService.class);
         personService.getA();
+    }
+
+    // 测试异常
+    @Test
+    public void test() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath*:/config/spring/spring-main.xml");
+        PersonService personService = applicationContext.getBean(PersonService.class);
+        personService.exception("jifei", 12, new ReceiveModel("fj", "324"));
     }
 
     @Test

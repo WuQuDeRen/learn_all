@@ -220,7 +220,7 @@ public class ValidatorUtil2 {
     private String strParam() {
     	StringBuilder builder = new StringBuilder();
     	for (Map.Entry<String, Object>  entry : params.entrySet()) {
-    		builder.append(" ").append(entry.getKey()).append(": ").append(JSONUtils.toString(entry.getValue()));
+    		builder.append(" ").append(entry.getKey()).append(": ").append(JSONUtil.toString(entry.getValue()));
     	}
     	return builder.toString();
     }

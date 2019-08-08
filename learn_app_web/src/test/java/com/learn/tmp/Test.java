@@ -1,17 +1,11 @@
 package com.learn.tmp;
 
 import com.alibaba.fastjson.JSON;
-import com.learn.system.util.AssembleUtil;
 import com.learn.system.util.HttpClientUtils;
-import com.learn.system.util.JSONUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.collections.CollectionUtils;
-import org.testng.collections.Lists;
 import org.testng.collections.Maps;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Test {
@@ -29,7 +23,7 @@ public class Test {
 		requestContent.put("content", "来了，老弟");
 		requestBody.put("text", requestContent);
 
-		HttpClientUtils.httpPost(dingdingRobotRL, JSON.toJSONString(requestBody));
+		HttpClientUtils.post(dingdingRobotRL, JSON.toJSONString(requestBody));
 
 
 

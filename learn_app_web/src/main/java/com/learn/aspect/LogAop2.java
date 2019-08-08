@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LogAop2 {
 
-    @Pointcut("execution(* com.learn.aspect.PersonService.getAb(..))")
+    @Pointcut("execution(* com.learn.app.core.service.PersonService.getAb(..))")
     @Order(3)
     public void point(){}
 

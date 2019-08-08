@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.learn.vo.ReceiveModel;
+import com.learn.app.core.service.ReceiveModel;
 import com.learn.vo.TestVo;
 
 import io.swagger.annotations.Api;

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class JSONUtils {
+public class JSONUtil {
 
 	/**
 	 * 字符串序列化为 json 字符串（打印到日志里）

@@ -18,9 +18,6 @@ public class ExceptionUtil {
     private static Logger logger = LoggerFactory.getLogger(ExceptionUtil.class);
 
     public static String getMessage(Throwable e) {
-        if (!StringUtils.isEmpty(e.getMessage())) {
-            return e.getMessage();
-        }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(byteArrayOutputStream);
         e.printStackTrace(printStream);

@@ -37,7 +37,7 @@ public class ObjectInitUtil {
                     try {
                         item.set(obj, null);
                     } catch (Exception e) {
-                        logger.error("exception【置空失败】params => obj【{}】", JSONUtils.toString(obj), e);
+                        logger.error("exception【置空失败】params => obj【{}】", JSONUtil.toString(obj), e);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class ObjectInitUtil {
                     try {
                         item.set(obj, null);
                     } catch (Exception e) {
-                        logger.error("exception【置空失败】params => obj【{}】", JSONUtils.toString(obj), e);
+                        logger.error("exception【置空失败】params => obj【{}】", JSONUtil.toString(obj), e);
                     }
                 }
             }
