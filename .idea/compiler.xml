@@ -25,25 +25,5 @@
         <module name="learn_design_pattern" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="learn_app" target="1.5" />
-      <module name="learn_app_admin" target="1.8" />
-      <module name="learn_app_algorithm" target="1.8" />
-      <module name="learn_app_api" target="1.8" />
-      <module name="learn_app_cache" target="1.8" />
-      <module name="learn_app_common" target="1.8" />
-      <module name="learn_app_concurrent" target="1.8" />
-      <module name="learn_app_core" target="1.8" />
-      <module name="learn_app_dubbo" target="1.8" />
-      <module name="learn_app_facade" target="1.8" />
-      <module name="learn_app_nio" target="1.8" />
-      <module name="learn_app_order" target="1.8" />
-      <module name="learn_app_proxy" target="1.8" />
-      <module name="learn_app_spring" target="1.8" />
-      <module name="learn_app_test" target="1.8" />
-      <module name="learn_app_web" target="1.8" />
-      <module name="learn_app_websocket" target="1.8" />
-      <module name="learn_design_pattern" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
