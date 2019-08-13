@@ -7,17 +7,15 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>learn_app_api</module>
-		<module>learn_app_web</module>
-		<module>learn_app_common</module>
-		<module>learn_app_core</module>
-		<module>learn_app_order</module>
-		<module>learn_app_test</module>
-		<module>learn_app_facade</module>
-        <module>learn_design_pattern</module>
-        <module>learn_app_algorithm</module>
-        <module>learn_app_concurrent</module>
-        <module>learn_app_spring</module>
+		<module>api</module>
+		<module>web</module>
+		<module>common</module>
+		<module>core</module>
+		<module>order</module>
+		<module>test</module>
+        <module>pattern</module>
+        <module>algorithm</module>
+        <module>concurrent</module>
         <module>cache</module>
         <module>admin_web</module>
         <module>websocket</module>
@@ -500,16 +498,8 @@
 				<artifactId>learn_app_test</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
-			<dependency>
-				<groupId>com.learn</groupId>
-				<artifactId>learn_app_facade</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.learn</groupId>
-				<artifactId>learn_app_spring</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
+
+
 			<dependency>
 				<groupId>com.learn</groupId>
 				<artifactId>learn_app_common</artifactId>
