@@ -1,0 +1,188 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ *  将数据格式为{"id": id1, "parentId": parentId, "isLeaf": true/false}的列表，转换为tree
+ *  通过递归实现
+ */
+public class MenuGenerationTest {
+
+
+
+    public static void main(String[] args) {
+        //1、获取数据源
+        List<MenuRecord> menuRecordList = generateDataSources();
+
+        //2、获取菜单
+        List<MenuDto> resultMenuList = generateMenu(menuRecordList, "0");
+
+        //3、菜单打印
+        System.out.println(resultMenuList);
+    }
+
+    /**
+     * 菜单处理
+     * @param sourceMenuRecordList
+     * @param parentId
+     * @return
+     */
+    private static List<MenuDto> generateMenu(List<MenuRecord> sourceMenuRecordList, String parentId) {
+        List<MenuDto> targetMenuList = new ArrayList<MenuDto>();
+        for (MenuRecord menuRecord : sourceMenuRecordList) {
+            if (parentId.equals(menuRecord.getParentId())) {
+                MenuDto menDto = new MenuDto();
+                menDto.setId(menuRecord.getId());
+                menDto.setIsLeaf(menuRecord.getIsLeaf());
+                menDto.setParentId(menuRecord.getParentId());
+                targetMenuList.add(menDto);
+                if (!menDto.getIsLeaf()) {
+                    List<MenuDto> childMenuList = generateMenu(sourceMenuRecordList, menuRecord.getId());
+                    menDto.setChild(childMenuList);
+                }
+            }
+        }
+        return targetMenuList;
+    }
+
+    /**
+     * 生成数据源
+     * @return
+     */
+    private static List<MenuRecord> generateDataSources() {
+        MenuRecord menuRecord1 = new MenuRecord("1", false, "0");
+        MenuRecord menuRecord11 = new MenuRecord("11", false, "1");
+        MenuRecord menuRecord111 = new MenuRecord("111", true, "11");
+        MenuRecord menuRecord112 = new MenuRecord("112", false, "11");
+        MenuRecord menuRecord1121 = new MenuRecord("1121", true, "112");
+        MenuRecord menuRecord1122 = new MenuRecord("1122", true, "112");
+        MenuRecord menuRecord12 = new MenuRecord("12", true, "1");
+
+        MenuRecord menuRecord2 = new MenuRecord("2", false, "0");
+        MenuRecord menuRecord21 = new MenuRecord("21", true, "2");
+        MenuRecord menuRecord22 = new MenuRecord("22", true, "2");
+        MenuRecord menuRecord3 = new MenuRecord("3", false, "0");
+        MenuRecord menuRecord31 = new MenuRecord("31", false, "3");
+        MenuRecord menuRecord311 = new MenuRecord("311", true, "31");
+        MenuRecord menuRecord32 = new MenuRecord("32", true, "3");
+
+
+        List<MenuRecord> menuRecordList = new ArrayList<MenuRecord>();
+
+
+        menuRecordList.add(menuRecord1);
+        menuRecordList.add(menuRecord11);
+        menuRecordList.add(menuRecord111);
+        menuRecordList.add(menuRecord112);
+        menuRecordList.add(menuRecord1121);
+        menuRecordList.add(menuRecord1122);
+        menuRecordList.add(menuRecord12);
+
+        menuRecordList.add(menuRecord2);
+        menuRecordList.add(menuRecord21);
+        menuRecordList.add(menuRecord22);
+        menuRecordList.add(menuRecord3);
+        menuRecordList.add(menuRecord31);
+        menuRecordList.add(menuRecord311);
+        menuRecordList.add(menuRecord32);
+
+        return menuRecordList;
+    }
+
+
+    public static class MenuRecord {
+        private String id;
+        private Boolean isLeaf;
+        private String parentId;
+
+        public MenuRecord(String id, Boolean isLeaf, String parentId) {
+            this.id = id;
+            this.isLeaf = isLeaf;
+            this.parentId = parentId;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public Boolean getIsLeaf() {
+            return isLeaf;
+        }
+
+        public void setIsLeaf(Boolean isLeaf) {
+            this.isLeaf = isLeaf;
+        }
+
+        public String getParentId() {
+            return parentId;
+        }
+
+        public void setParentId(String parentId) {
+            this.parentId = parentId;
+        }
+
+        @Override
+        public String toString() {
+            return "MenuGenerationTest.MenuRecord{" +
+                    "id='" + id + '\'' +
+                    ", isLeaf=" + isLeaf +
+                    ", parentId='" + parentId + '\'' +
+                    '}';
+        }
+    }
+
+    static class MenuDto {
+        private String id;
+        private Boolean isLeaf;
+        private String parentId;
+
+        private List<MenuDto> child = new ArrayList<MenuDto>();
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public Boolean getIsLeaf() {
+            return isLeaf;
+        }
+
+        public void setIsLeaf(Boolean isLeaf) {
+            this.isLeaf = isLeaf;
+        }
+
+        public String getParentId() {
+            return parentId;
+        }
+
+        public void setParentId(String parentId) {
+            this.parentId = parentId;
+        }
+
+        public List<MenuDto> getChild() {
+            return child;
+        }
+
+        public void setChild(List<MenuDto> child) {
+            this.child = child;
+        }
+
+        @Override
+        public String toString() {
+            return "MenuGenerationTest.MenuDto{" +
+                    "id='" + id + '\'' +
+                    ", isLeaf=" + isLeaf +
+                    ", parentId='" + parentId + '\'' +
+                    '}';
+        }
+    }
+}
+
+
