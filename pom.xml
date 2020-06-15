@@ -73,7 +73,7 @@
 		<logback.classic.version>1.1.7</logback.classic.version>
 		<apache.commons.lang.version>3.3.2</apache.commons.lang.version>
 		<apache.commons.beanutils.version>1.8.3</apache.commons.beanutils.version>
-		<apache.commons.collections.version>3.2.1</apache.commons.collections.version>
+		<apache.commons.collections.version>3.2.2</apache.commons.collections.version>
 		<swagger2.version>2.7.0</swagger2.version>
 		<jackson.version>2.9.0</jackson.version>
 		<lombok.version>1.16.22</lombok.version>
