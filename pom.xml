@@ -32,7 +32,7 @@
 	<properties>
 		<gson.version>15.0</gson.version>
 		<springframework.version>4.3.2.RELEASE</springframework.version>
-		<springsecurity.version>4.0.1.RELEASE</springsecurity.version>
+		<springsecurity.version>5.2.10.RELEASE</springsecurity.version>
 		<mysql.version>5.1.31</mysql.version>
 		<testng.version>6.9.4</testng.version>
 		<mockito.version>1.10.19</mockito.version>
