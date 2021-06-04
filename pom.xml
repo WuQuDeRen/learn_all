@@ -64,7 +64,7 @@
 		<axis.saaj.version>1.4</axis.saaj.version>
 		<json.lib.version>2.2.2</json.lib.version>
 		<jna.version>4.1.0</jna.version>
-		<http.client.version>4.4.1</http.client.version>
+		<http.client.version>4.5.13</http.client.version>
 		<httpasyncclient.cache.version>4.1.4</httpasyncclient.cache.version>
 		<maven.compiler.plugin.version>2.1</maven.compiler.plugin.version>
 		<jdk.version>1.8</jdk.version>
